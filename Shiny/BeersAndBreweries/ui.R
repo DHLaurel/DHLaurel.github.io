@@ -41,6 +41,8 @@ brew_dat <- read.csv("./Breweries.csv")
 
 # Define UI
 fluidPage(
+  p("Back home: ",
+    a("https://dhlaurel.github.io/Projects.html", "", target="_blank")),
   titlePanel("Beer Data Explorer"),
   sidebarLayout(
     sidebarPanel(
