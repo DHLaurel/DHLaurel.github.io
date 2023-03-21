@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #' @examples 
 #' mypath <- get_scriptpath()
 #' @export
+#' source()
 #' 
 get_scriptpath <- function() {
   # location of script can depend on how it was invoked:
