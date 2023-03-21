@@ -5,9 +5,9 @@ account: dhlaurel
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8624653
-bundleId: 6985469
+bundleId: 6985451
 url: https://dhlaurel.shinyapps.io/BeersAndBreweries/
-when: 1679371454.87339
-lastSyncTime: 1679371454.8734
+when: 1679371270.97161
+lastSyncTime: 1679371270.97162
 asMultiple: FALSE
 asStatic: FALSE
