@@ -1,0 +1,8 @@
+---
+title: "Projects"
+author: "David Laurel"
+date: "2023-03-21"
+output: html_document
+---
+
+<a href = "https://dhlaurel.shinyapps.io/BeersAndBreweries/" >Shiny Beers and Breweries</a>
