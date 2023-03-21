@@ -20,12 +20,10 @@ library(scales)
 
 set.seed(13)
 
-breweries_file = file.choose()
-beer_file = file.choose()
-final = read.csv(file.choose(), header = TRUE) #DUI_Beer_Data.csv file
+breweries_file = read.csv("./Data/Breweries.csv")
+beer_file = read.csv("./Data/Beers.csv")
+final = read.csv("./Data/DUI_Beer_Data.csv", header = TRUE) #DUI_Beer_Data.csv file
 
-breweries_file = read.csv(breweries_file)
-beer_file = read.csv(beer_file)
 brew_dat = breweries_file
 beer_dat = beer_file
 
