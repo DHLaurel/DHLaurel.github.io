@@ -9,5 +9,26 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# This is all about me
-### Not a lot
+<img src="./20230103_180002 (2).jpg" alt="An image of the author, David" width="200"/>
+<p/>
+# Roots
+I was born in Austin, Texas, and raised there for a while before moving to Laredo at the age of nine. I'm the youngest of five siblings, and I enjoy writing short horror stories when I'm not working on projects in the data science and video game space.
+<br>
+<br>
+
+# Work
+I currently work as a full-time Software Engineer at a multinational corporation in Houston. My duties include maintaining existing core systems and engineering new developments utilizing the underlying framework that has been laid out.
+<br>
+<br>
+
+# School
+## Texas A&M University - B.S. Computer Science
+### College Station, TX
+I attended Texas A&M from 2014 - 2019, and earned a Bachelor of Science in Computer Science with an emphasis in algorithms and a capstone in gamified education and handwriting recognition in foreign languages. In addition to my core coursework, I completed a minor in Film Studies.
+<br>
+
+## Southern Methodist University - M.S. Data Science, Expected 2025
+### Dallas, TX
+I currently attend Southern Methodist University in Dallas, where I am working towards my a master's degree in Data Science with a specialization in Machine Learning.
+
+#### Be sure to check out the various projects I've worked on in the other tabs!
