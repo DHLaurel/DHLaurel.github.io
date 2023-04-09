@@ -8,5 +8,7 @@ navbar:
       href: aboutme.html
     - text: "Beer and Breweries"
       href: BeersAndBreweries.html
+    - text: "Employee Attrition"
+      href: EmployeeAttrition.html
     - text: "Projects"
       href: Projects.html
