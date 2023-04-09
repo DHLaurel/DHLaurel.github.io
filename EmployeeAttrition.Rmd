@@ -215,4 +215,4 @@ rmse
 
 -   <a href="https://dhlaurel.shinyapps.io/EmployeeSalaryAttrition/">RShiny
     App</a>
--   Video Presentation
+-   <a href="https://youtu.be/LLGktLJrF8c">Video Presentation</a>
