@@ -8,3 +8,5 @@ output: html_document
 -   <a href = "https://dhlaurel.shinyapps.io/BeersAndBreweries/" >Shiny Beers and Breweries</a>
 
 -   <a href = "https://dhlaurel.shinyapps.io/EmployeeSalaryAttrition/" >Employee Attrition</a>
+
+-   <a href = "https://tkunz.shinyapps.io/House-Price-Predictor/" >Ames Housing Data</a>

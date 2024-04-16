@@ -12,3 +12,5 @@ navbar:
       href: EmployeeAttrition.html
     - text: "Projects"
       href: Projects.html
+    - text: "Ames"
+      href: AmesPaper.pdf
