@@ -1,1 +1,2 @@
-theme: midnight
+#theme: midnight
+remote_theme: hydecorp/hydejack@v9
