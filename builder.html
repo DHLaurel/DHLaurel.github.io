@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="principles.html">Principles</a>
+            <a href="visualizations.html">Visualizations</a>
+            <a href="builder.html">Prompt Builder</a>
+            <a href="examples.html">Examples</a>
+        </nav>
+        <h1>Build Your Own Prompt</h1>
+        <label for="task-type">Task Type:</label>
+        <select id="task-type">
+            <option value="question">Question</option>
+            <option value="instruction">Instruction</option>
+            <option value="creative">Creative Task</option>
+        </select>
+        <label for="specificity">Specificity:</label>
+        <select id="specificity">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <label for="context">Context:</label>
+        <select id="context">
+            <option value="none">None</option>
+            <option value="some">Some</option>
+            <option value="lots">Lots</option>
+        </select>
+        <label for="tone">Tone:</label>
+        <select id="tone">
+            <option value="formal">Formal</option>
+            <option value="neutral">Neutral</option>
+            <option value="casual">Casual</option>
+        </select>
+        <button onclick="buildPrompt()">Generate Prompt</button>
+        <div id="prompt-output" style="margin-top: 20px;"></div>
+    </div>
+    <script>
+        function buildPrompt() {
+            const taskType = document.getElementById('task-type').value;
+            const specificity = document.getElementById('specificity').value;
+            const context = document.getElementById('context').value;
+            const tone = document.getElementById('tone').value;
+
+            let prompt = '';
+            if (taskType === 'question') {
+                prompt += 'What is ';
+            } else if (taskType === 'instruction') {
+                prompt += 'Explain ';
+            } else {
+                prompt += 'Write a story about ';
+            }
+
+            prompt += 'AI';
+
+            if (specificity === 'medium') {
+                prompt += ' in simple terms';
+            } else if (specificity === 'high') {
+                prompt += ' including its history and applications';
+            }
+
+            if (context === 'some') {
+                prompt += ', considering its impact on society';
+            } else if (context === 'lots') {
+                prompt += ', given its rapid development and ethical implications';
+            }
+
+            if (tone === 'formal') {
+                prompt = 'Please ' + prompt.toLowerCase() + '.';
+            } else if (tone === 'casual') {
+                prompt = 'Hey, ' + prompt.toLowerCase() + '?';
+            } else {
+                prompt += '.';
+            }
+
+            let feedback = 'Good start! ';
+            if (specificity === 'low') {
+                feedback += 'Try increasing specificity for a more detailed response. ';
+            }
+            if (context === 'none') {
+                feedback += 'Adding some context could help guide the AI better. ';
+            }
+            if (tone === 'neutral') {
+                feedback += 'A neutral tone works well for most prompts. ';
+            }
+
+            document.getElementById('prompt-output').innerHTML = `<strong>Generated Prompt:</strong> "${prompt}"<br><strong>Feedback:</strong> ${feedback}`;
+        }
+    </script>
+</body>
+</html>

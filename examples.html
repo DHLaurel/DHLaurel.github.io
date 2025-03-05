@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="principles.html">Principles</a>
+            <a href="visualizations.html">Visualizations</a>
+            <a href="builder.html">Prompt Builder</a>
+            <a href="examples.html">Examples</a>
+        </nav>
+        <h1>Examples Gallery</h1>
+        <div id="examples-list"></div>
+    </div>
+    <script>
+        const data = [
+            { prompt: "What is AI?", clarity: 5, specificity: 3, context: 1, tone: 3, effectiveness: 4, explanation: "Clear but could be more specific." },
+            { prompt: "Tell me about AI", clarity: 2, specificity: 2, context: 1, tone: 3, effectiveness: 3, explanation: "Too vague—needs more detail." },
+            { prompt: "Explain how to use AI in detail", clarity: 4, specificity: 4, context: 2, tone: 3, effectiveness: 5, explanation: "Specific and clear, good for detailed response." },
+            { prompt: "Can you give a brief overview of AI?", clarity: 5, specificity: 3, context: 2, tone: 4, effectiveness: 4, explanation: "Clear and polite, but could specify what aspect of AI." },
+            { prompt: "How does AI work?", clarity: 4, specificity: 3, context: 1, tone: 3, effectiveness: 4, explanation: "Good question, but adding context could improve it." },
+			{ prompt: "Explain AI in detail for a class project I'm doing", clarity: 4, specificity: 4, context: 4, tone: 4, effectiveness: 5, explanation: "Good work including some context for the prompt! This is a great first start." },
+            { prompt: "As an accomplished data scholar, tell me about AI", clarity: 2, specificity: 2, context: 2, tone: 5, effectiveness: 3, explanation: "Good tone hints, but otherwise the prompt is a little unclear." }
+        ];
+
+        function populateExamples() {
+            const examplesList = document.getElementById('examples-list');
+            data.forEach(d => {
+                const exampleDiv = document.createElement('div');
+                exampleDiv.className = 'example';
+                exampleDiv.innerHTML = `<strong>Prompt:</strong> "${d.prompt}"<br><strong>Effectiveness:</strong> ${d.effectiveness}/5<br><strong>Explanation:</strong> ${d.explanation}`;
+                examplesList.appendChild(exampleDiv);
+            });
+        }
+
+        populateExamples();
+    </script>
+</body>
+</html>

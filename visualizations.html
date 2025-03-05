@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="principles.html">Principles</a>
+            <a href="visualizations.html">Visualizations</a>
+            <a href="builder.html">Prompt Builder</a>
+            <a href="examples.html">Examples</a>
+        </nav>
+        <h1>Visualizations</h1>
+		<p>Let's take a look at how some of these sample prompts compare to one another! For the visualizations, we'll be comparing the following prompts:</p>
+		<list>
+			<li>"What is AI?"</li>
+			<li>"Tell me about AI"</li>
+			<li>"Explain AI in detail"</li>
+			<li>"Can you give a brief overview of AI?"</li>
+			<li>"How does AI work?"</li>
+			<li>"Explain AI in detail for a class project I'm doing"</li>
+			<li>"As an accomplished data scholar, tell me about AI"</li>
+		</list>
+        <label for="principle-select">Select a Principle:</label>
+        <select id="principle-select" class="dropdown">
+            <option value="clarity">Clarity</option>
+            <option value="specificity">Specificity</option>
+            <option value="context">Context</option>
+            <option value="tone">Tone</option>
+        </select>
+        <div id="principle-trend" style="margin-top: 20px;"></div>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="scatterChart"></canvas>
+        </div>
+    </div>
+    <script>
+        const data = [
+            { prompt: "What is AI?", clarity: 5, specificity: 3, context: 1, tone: 3, effectiveness: 4 },
+            { prompt: "Tell me about AI", clarity: 2, specificity: 2, context: 1, tone: 3, effectiveness: 3 },
+            { prompt: "Explain AI in detail", clarity: 4, specificity: 4, context: 2, tone: 3, effectiveness: 5 },
+            { prompt: "Can you give a brief overview of AI?", clarity: 5, specificity: 3, context: 2, tone: 4, effectiveness: 4 },
+            { prompt: "How does AI work?", clarity: 4, specificity: 3, context: 1, tone: 3, effectiveness: 4 },
+            { prompt: "Explain AI in detail for a class project I'm doing", clarity: 4, specificity: 4, context: 4, tone: 4, effectiveness: 4 },
+            { prompt: "As an accomplished data scholar, tell me about AI", clarity: 2, specificity: 2, context: 2, tone: 5, effectiveness: 3 }
+        ];
+
+        const principleTrends = {
+            clarity: "Since these sample prompts are all pretty straightforward, we see a high average clarity. But if you look closely, something like 'Tell me about AI' is a bit less clear than 'What is AI?'. Clarity and Speficity are closely interrelated! Often the best way to be clear about something is to be specific.",
+            specificity: "Asking broad questions about a topic might be good if you don't know where to start, but once you begin to understand what it is you're asking, an LLM might be better able to provide an answer!",
+            context: "Including information about what it is your question relates to can be an effective way to make sure the answer addresses your specific needs.",
+            tone: "Tone can be useful depending on your personal preference and the situtation you're in! Clarifying that this prompt is for a formal presentation will produce a much different response than one for a stand-up punchline."
+        };
+
+        let barChart, scatterChart;
+
+        function initCharts() {
+            const ctxBar = document.getElementById('barChart').getContext('2d');
+            barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['High (≥4)', 'Low (<4)'],
+                    datasets: [{
+                        label: 'Average Effectiveness',
+                        data: [0, 0],
+                        backgroundColor: ['#4caf50', '#f44336']
+                    }]
+                },
+                options: {
+                    scales: { y: { beginAtZero: true, max: 5 } }
+                }
+            });
+
+            const ctxScatter = document.getElementById('scatterChart').getContext('2d');
+            scatterChart = new Chart(ctxScatter, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Prompts',
+                        data: [],
+                        backgroundColor: 'rgba(0, 255, 0, 0.5)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { title: { display: true, text: 'Principle Score' }, min: 1, max: 6 },
+                        y: { title: { display: true, text: 'Effectiveness' }, min: 1, max: 6 }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return `Prompt: "${point.prompt}"`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateCharts(principle) {
+            // Update bar chart
+            const highScores = data.filter(d => d[principle] >= 4);
+            const lowScores = data.filter(d => d[principle] < 4);
+            const avgHigh = highScores.length ? highScores.reduce((sum, d) => sum + d.effectiveness, 0) / highScores.length : 0;
+            const avgLow = lowScores.length ? lowScores.reduce((sum, d) => sum + d.effectiveness, 0) / lowScores.length : 0;
+            barChart.data.datasets[0].data = [avgHigh, avgLow];
+            barChart.update();
+
+            // Update scatter chart
+            const scatterData = data.map(d => ({ x: d[principle], y: d.effectiveness, prompt: d.prompt }));
+            scatterChart.data.datasets[0].data = scatterData;
+            scatterChart.options.scales.x.title.text = `${principle.charAt(0).toUpperCase() + principle.slice(1)} Score`;
+            scatterChart.update();
+
+            // Update trend description
+            document.getElementById('principle-trend').innerText = principleTrends[principle];
+        }
+
+        document.getElementById('principle-select').addEventListener('change', function() {
+            updateCharts(this.value);
+        });
+
+        initCharts();
+        updateCharts('clarity');
+    </script>
+</body>
+</html>

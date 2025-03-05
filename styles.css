@@ -1,0 +1,135 @@
+body {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #00ff00;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #00ff00;
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 5px 10px;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+h1, h2 {
+    color: #00ff00;
+}
+
+.dropdown, select, button {
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.example {
+    background-color: #111;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #00ff00;
+}
+
+#prompt-output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #111;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+}
+
+.principle-img {
+    max-width: 300px;
+    height: auto;
+    border: 2px solid #00ff00;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+.intro {
+    background-color: #111;
+    padding: 20px;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.intro ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    line-height: 1.6;
+}
+
+.intro li {
+    margin-bottom: 10px;
+}
+
+.terminal-prompt {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.prompt-symbol {
+    font-size: 48px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    margin-right: 10px;
+}
+
+.cursor {
+    font-size: 48px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.intro h2 {
+    margin-bottom: 10px;
+    text-decoration: underline;
+}

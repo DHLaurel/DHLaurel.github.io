@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Principles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="principles.html">Principles</a>
+            <a href="visualizations.html">Visualizations</a>
+            <a href="builder.html">Prompt Builder</a>
+            <a href="examples.html">Examples</a>
+        </nav>
+        <h1>Explore Prompt Engineering Principles</h1>
+        <label for="principle-select">Select a Principle:</label>
+        <select id="principle-select" class="dropdown">
+            <option value="clarity">Clarity</option>
+            <option value="specificity">Specificity</option>
+            <option value="context">Context</option>
+            <option value="tone">Tone</option>
+        </select>
+        <br/><br/>
+        <div id="principle-image" style="margin-top: 20px;"></div>
+        <div id="principle-desc" style="margin-top: 20px;"></div>
+        <div id="good-examples" style="margin-top: 20px;"></div>
+        <div id="bad-examples" style="margin-top: 20px;"></div>
+    </div>
+    <script>
+        const principleDescs = {
+            clarity: "Clarity means your prompt is straightforward and easy to understand, leaving little room for confusion or misinterpretation by the AI. A clear prompt ensures the AI grasps exactly what you’re asking, leading to responses that are direct and relevant. Without clarity, the AI might misinterpret vague wording or ramble off-topic. Clarity is the foundation of effective communication with AI, making it a critical skill for beginners to master.",
+            specificity: "Specificity ensures your prompt is detailed and precise, narrowing down the scope so the AI knows exactly what information or action you want. A specific prompt reduces guesswork, helping the AI avoid generic or irrelevant answers. This principle is key when you need in-depth or targeted responses rather than broad overviews. Specificity empowers you to control the conversation, tailoring the AI’s output to your needs with precision.",
+            context: "Context provides background information to guide the AI’s response, ensuring it understands the situation or intent behind your prompt. Adding context is like setting the stage—it helps the AI align its answer with your expectations, especially for complex or niche topics. Without context, the AI might assume incorrectly or provide a generic response. Context bridges the gap between your intent and the AI’s understanding, making it essential for meaningful interactions.",
+            tone: "Tone sets the mood of the prompt, like formal or casual, influencing how the AI crafts its response to match your style or audience. It’s not just about what you ask, but how you ask it—tone can make the interaction feel natural or appropriate for the context. A mismatched tone might confuse the AI or skew its reply. Tone adds personality and clarity to your prompts."
+        };
+
+        const goodExamples = {
+            clarity: "<h2>Good Examples</h2>'What is the main purpose of AI in healthcare?' – This prompt is concise and unambiguous, guiding the AI to focus on a specific area and deliver a useful answer.",
+            specificity: "<h2>Good Examples</h2>'Explain how neural networks work in AI, focusing on their training process' – This pinpoints a topic and aspect, yielding a detailed, relevant reply.",
+            context: "<h2>Good Examples</h2>'Given that I’m a beginner, explain AI in simple terms with examples' – This gives the AI crucial details about your knowledge level and desired style, leading to a tailored, accessible answer.",
+            tone: "<h2>Good Examples</h2>'Hey, can you give me a quick, chill rundown of AI basics?' – This uses a casual tone that signals an informal, friendly response is desired, keeping things light and approachable."
+        };
+
+        const badExamples = {
+            clarity: "<h2>Bad Examples</h2>'Tell me stuff about AI' – This lacks direction, inviting a broad, unfocused response that might overwhelm or confuse you.",
+            specificity: "<h2>Bad Examples</h2>'What’s AI?' – This is too open-ended, likely prompting a shallow summary that misses the mark if you wanted something deeper.",
+            context: "<h2>Bad Examples</h2>'Explain AI' – This offers no hints about your needs, risking a response that’s too technical or vague.",
+            tone: "<h2>Bad Examples</h2>'AI explanation' – This is toneless and dry, leaving the AI to guess the vibe—potentially resulting in a stiff or overly formal answer."
+        };
+
+        const principleImages = {
+            clarity: "images/eyeglasses.png",
+            specificity: "images/magnifying-glass.png",
+            context: "images/book.png",
+            tone: "images/crown.png"
+        };
+
+        function updatePrincipleDisplay(principle) {
+            document.getElementById('principle-desc').innerText = principleDescs[principle];
+            document.getElementById('good-examples').innerHTML = goodExamples[principle];
+            document.getElementById('bad-examples').innerHTML = badExamples[principle];
+            document.getElementById('principle-image').innerHTML = `<img src="${principleImages[principle]}" alt="${principle} image" class="principle-img">`;
+        }
+
+        document.getElementById('principle-select').addEventListener('change', function() {
+            updatePrincipleDisplay(this.value);
+        });
+
+        // Initialize with clarity
+        updatePrincipleDisplay('clarity');
+    </script>
+</body>
+</html>
